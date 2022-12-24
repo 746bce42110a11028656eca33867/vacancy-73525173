@@ -265,17 +265,19 @@
               primary_selector.on('input focus change update keyup', function() {
                 let data = JSON.parse( $('[role="data-storage"]').attr('db_data') );
                 let a = this.value;
-                $('[name="time_start"]').val( data[a].time_start );
-                $('[name="time_end"]').val( data[a].time_end );
-                $('[name="div"]').val( data[a].div );
-                $('[name="id"]').val( data[a].id );
-                for( b in data[a].vals ) {
-                  $('[name="'+b+'"]').val( data[a].vals[b] ); // ask me about xss
-                }
+                if( a.length == 0 ) {
+                  $('[name="time_start"]').val( data[a].time_start );
+                  $('[name="time_end"]').val( data[a].time_end );
+                  $('[name="div"]').val( data[a].div );
+                  $('[name="id"]').val( data[a].id );
+                  for( b in data[a].vals ) {
+                    $('[name="'+b+'"]').val( data[a].vals[b] ); // ask me about xss
+                  }
+                } else { $('#debug_window').html( 'DB seems empty' ); }
               });
-              primary_selector.trigger( "input" );
               $('#debug_window').html( 'loaded' );
               $("#overlay").hide();
+              primary_selector.trigger( "input" );
             },
             error: function(a) { alert('something went very wrong...\n'+a.responseText) }
         });

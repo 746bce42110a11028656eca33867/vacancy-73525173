@@ -12,3 +12,9 @@
 - Back end - php	
 - Работа с БД в PHP - PDO	
 - БД - My SQL или MS SQQ, что ближе	
+
+## Установка пакета
+* git clone https://github.com/746bce42110a11028656eca33867/vacancy-73525173
+* cd vacancy-73525173
+* php -S localhost:8181
+* http://localhost:8181/
