@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <title>Hello, world!</title>
+    <style>
+      .col, [class*="col-"] {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      .cap1 {
+        font-family: Calibri;
+        font-size: 18pt;
+        white-space: nowrap;
+      }
+      .align-bottom-like-in-bootstrap-4 {
+        margin-top: auto;
+        margin-bottom: 0;
+      }
+      .input-border-like-in-task {
+        border: 0;
+        border-bottom: 1px solid black;
+        width: 100%;
+      }
+      .apply_comfy_width_4 > * {
+        width: 25%;
+      }
+      .Calibri11 {
+        font-size: 11pt;
+        font-family: Calibri
+      }
+      .bb_top {
+        border-top: 1px solid black;
+      }
+      .bb_bottom, input.bb_bottom {
+        border-bottom: 1px solid black;
+      }
+      .bb_left {
+        border-left: 1px solid black;
+      }
+      .height_28 * {
+        height: 28pt;
+      }
+      .have_table_caption_padding * {
+        padding-top: 5pt;
+      }
+      .input-because-no-xeditable-for-this {
+        width: 100%;
+        border: 0;
+        text-align: center;
+        font-size: 16pt;
+        font-family: Calibri;
+      }
+      #debug_window:before {
+        content: "Запрос или ответ или ошибка.";
+        top: 0;
+        position: absolute;
+      }
+      #debug_window {
+        border: 1px dashed black;
+        top: 30px;
+        right: 10px;
+        position: absolute;
+        width: calc(100vw - 800px);
+        height: 50vh;
+        overflow: auto;
+        overflow-wrap: break-word;
+        padding: 20px;
+      }
+      button {
+        display: block;
+        margin: 10px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <div style="max-width: 720px; margin: 50px;">
+      <div class="border border-dark" style="padding-bottom: 10px;">
+        <div class="container">
+          <div class="row">
+             <div class="align-bottom-like-in-bootstrap-4 col-4 cap1 text-right">Дата измерений:</div>
+             <div class="align-bottom-like-in-bootstrap-4 col-2"><input name="date" type="text" id="dp1" class="input-border-like-in-task"></div>
+             <div class="align-bottom-like-in-bootstrap-4 col-3 cap1">Время замеров:</div>
+             <div class="align-bottom-like-in-bootstrap-4 col-3">
+              <div class="apply_comfy_width_4">
+               от
+               <input name="time_start" type="text" class="input-border-like-in-task" data-toggle="tooltip" data-placement="top" title="А тут что за юниты?">
+               до
+               <input name="time_end" type="text" class="input-border-like-in-task"  data-toggle="tooltip" data-placement="top" title="А тут что за юниты?">
+              </div>
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-4 cap1 text-right">Отделение:</div>
+             <div class="col-2">
+              <select class="form-control Calibri11" name="div" style="border: 0;">
+                <option value="0"> </option>
+                <option value="1.1">1.1</option>
+                <option value="1.2">1.2</option>
+                <option value="1.3">1.3</option>
+                <option value="1.4">1.4</option>
+                <option value="1.5">1.5</option>
+              </select>
+             </div>
+          </div>
+          <div class="row" style="margin-top: 20pt;">
+            <div class="col"></div>
+            <div class="col-3 text-center Calibri11 bb_top bb_left">Капельница</div>
+            <div class="col-3 text-center Calibri11 bb_top bb_left">Дренаж</div>
+            <div class="col-2 text-center Calibri11 bb_top bb_left">Мат</div>
+          </div>
+          <div class="row height_28 have_table_caption_padding">
+            <div class="bb_top Calibri11 text-right col" style="padding-right: 10px !important">№ клапана полива</div>
+            <div class="bb_left bb_top Calibri11 text-center col-1">Объем</div>
+            <div class="bb_left bb_top Calibri11 text-center col-1">ЕС</div>
+            <div class="bb_left bb_top Calibri11 text-center col-1">рН</div>
+            <div class="bb_left bb_top Calibri11 text-center col-1">Объем</div>
+            <div class="bb_left bb_top Calibri11 text-center col-1">ЕС</div>
+            <div class="bb_left bb_top Calibri11 text-center col-1">рН</div>
+            <div class="bb_left bb_top Calibri11 text-center col-1">ЕС</div>
+            <div class="bb_left bb_top Calibri11 text-center col-1">рН</div>
+          </div>
+
+          <div class="row height_28">
+            <div class="bb_top Calibri11 text-right col" style="padding-right: 10px !important">1</div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_1_1" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_1_2" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_1_3" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_1_4" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_1_5" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_1_6" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_1_7" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_1_8" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+          </div>
+
+          <div class="row height_28">
+            <div class="bb_top Calibri11 text-right col" style="padding-right: 10px !important">2</div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_2_1" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_2_2" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_2_3" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_2_4" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_2_5" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_2_6" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_2_7" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_2_8" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+          </div>
+
+          <div class="row height_28">
+            <div class="bb_top Calibri11 text-right col" style="padding-right: 10px !important">3</div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_3_1" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_3_2" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_3_3" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_3_4" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_3_5" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_3_6" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_3_7" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_3_8" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+          </div>
+
+          <div class="row height_28">
+            <div class="bb_top Calibri11 text-right col" style="padding-right: 10px !important">4</div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_4_1" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_4_2" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_4_3" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_4_4" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_4_5" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_4_6" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_4_7" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_4_8" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+          </div>
+
+          <div class="row height_28">
+            <div class="bb_top Calibri11 text-right col" style="padding-right: 10px !important">5</div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_5_1" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_5_2" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_5_3" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_5_4" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_5_5" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_5_6" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_5_7" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_5_8" type="text" class="input-because-no-xeditable-for-this" data-filter="x_comma_x"></div>
+          </div>
+
+          <div class="row height_28 bb_bottom">
+            <div class="bb_top Calibri11 text-right col" style="padding-right: 10px !important">6</div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_6_1" type="text" class="input-because-no-xeditable-for-this bb_bottom" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_6_2" type="text" class="input-because-no-xeditable-for-this bb_bottom" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_6_3" type="text" class="input-because-no-xeditable-for-this bb_bottom" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_6_4" type="text" class="input-because-no-xeditable-for-this bb_bottom" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_6_5" type="text" class="input-because-no-xeditable-for-this bb_bottom" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_6_6" type="text" class="input-because-no-xeditable-for-this bb_bottom" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_6_7" type="text" class="input-because-no-xeditable-for-this bb_bottom" data-filter="x_comma_x"></div>
+            <div class="bb_left bb_top Calibri11 text-center col-1"><input name="cell_6_8" type="text" class="input-because-no-xeditable-for-this bb_bottom" data-filter="x_comma_x"></div>
+          </div>
+
+          <div class="row" style="margin-top: 30pt;">
+            <div class="Calibri11 text-right col-3" style="padding-right: 10px !important">Измерение выполнил:</div>
+            <div class="align-bottom-like-in-bootstrap-4 col-2"><input name="id" type="text" class="input-border-like-in-task"></div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+    <div id="debug_window"></div>
+    <script type="text/javascript">
+      $(function () {
+        $('#dp1').datepicker();
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+      $('[data-filter="x_comma_x"]').on('input', function() {
+        let a = this.value.split(',').map(a => parseInt('0'+a) ).concat([0, 0]);
+        this.value = String( a[0] )[0] + ',' + String( a[1] )[0];
+      });
+      $('input,select').on('input focus change update keyup', function() {
+        $('#debug_window').html( function() {
+          let a = {};
+          $('input,select').map((c,d)=>a[d.name]=d.value);
+          let b = JSON.stringify(a);
+          $('#debug_window').attr('json_to_push', b);
+          return b + "<button type='button'>Отправить</button>";
+        } );
+      });
+      $(document).on("click","button",function(e){
+        $(this).prop("disabled",true);
+        $.ajax({
+            type: "POST",
+            url: "create.php",
+            data: $('#debug_window').attr('json_to_push'),
+            contentType: "application/json; charset=utf-8",
+            cache: false,
+            success: function(a){ $('#debug_window').html( a ) },
+            error: function(a) { $('#debug_window').html( "Error<hr/>"+a.responseText ) }
+        });
+      });
+    </script>
+  </body>
+</html>
